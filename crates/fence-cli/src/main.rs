@@ -1,5 +1,5 @@
 use common::{CliConfig, FenceError, chat_format_name};
-use model::{Qwen3Model, apply_cli_to_model_config};
+use fence_model::{Qwen3Model, apply_cli_to_model_config};
 use std::env;
 use tokenizer::Tokenizer;
 
