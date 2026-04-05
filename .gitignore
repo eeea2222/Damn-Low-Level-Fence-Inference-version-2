@@ -1,0 +1,4 @@
+/build/
+/target/
+**/*.swp
+**/.DS_Store

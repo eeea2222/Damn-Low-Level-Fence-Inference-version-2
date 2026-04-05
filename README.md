@@ -26,6 +26,34 @@ make DEBUG=1 fence  # debug build with CUDA device-side symbols
 Requires CUDA 12+ and an NVIDIA GPU (Makefile defaults to SM 8.9 / RTX 4060;
 edit `SM` in the Makefile for other GPUs).
 
+### Rust migration workspace (in progress)
+
+The repository now also includes a Rust workspace that mirrors major module
+boundaries for the migration effort:
+
+- `crates/common` — shared errors/types/config/chat-format detection
+- `crates/gguf` — GGUF parser with mmap and metadata/tensor indexing
+- `crates/tokenizer` — tokenizer/chat prompt formatting scaffold
+- `crates/kernels` — quantized type layouts + Q6_K swizzled extraction checks
+- `crates/model` — model runtime scaffold and config wiring
+- `crates/fence-cli` — Rust CLI entrypoint
+
+Build and test the Rust workspace:
+
+```bash
+cargo fmt --all
+cargo test --workspace
+```
+
+Run the Rust CLI (scaffolded):
+
+```bash
+cargo run -p fence-cli -- --model /path/to/model.gguf --prompt "Hello"
+```
+
+> Note: the Rust implementation is currently a migration baseline and does not
+> yet provide full CUDA inference parity with the C++/CUDA engine.
+
 ## Run
 
 ```bash
