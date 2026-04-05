@@ -1,0 +1,10 @@
+[package]
+name = "fence-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+common = { path = "../common" }
+model = { path = "../model" }
+tokenizer = { path = "../tokenizer" }

@@ -1,0 +1,19 @@
+[workspace]
+members = [
+  "crates/common",
+  "crates/gguf",
+  "crates/tokenizer",
+  "crates/kernels",
+  "crates/model",
+  "crates/fence-cli",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+license = "MIT"
+
+[workspace.dependencies]
+memmap2 = "0.9.5"
+thiserror = "2.0.12"
